@@ -1,4 +1,4 @@
-package com.github.wxiaoqi.security.common.constant;
+package com.github.guanwu.security.common.constant;
 
 /**
  * ${DESCRIPTION}
