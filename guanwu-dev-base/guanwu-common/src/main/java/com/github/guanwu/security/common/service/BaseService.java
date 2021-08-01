@@ -18,10 +18,6 @@ public abstract class BaseService<M extends Mapper<T>, T> {
     @Autowired
     protected  M mapper;
 
-    protected BaseService(M mapper) {
-        this.mapper = mapper;
-    }
-
     public void setMapper(M mapper) {
         this.mapper = mapper;
     }

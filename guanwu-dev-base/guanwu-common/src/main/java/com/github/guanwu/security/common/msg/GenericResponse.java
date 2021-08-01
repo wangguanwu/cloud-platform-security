@@ -14,4 +14,8 @@ public class GenericResponse<T> extends BaseResponse{
         return (T)super.getData();
     }
 
+    public GenericResponse<T> data(T data) {
+        super.setData((Object) data);
+        return this;
+    }
 }

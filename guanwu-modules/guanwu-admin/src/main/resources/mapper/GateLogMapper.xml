@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.guanwu.security.modules.mapper.mapper.GateLogMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.github.guanwu.security.modules.admin.entity.GateLog" id="gateLogMap">
+        <result property="id" column="id"/>
+        <result property="menu" column="menu"/>
+        <result property="opt" column="opt"/>
+        <result property="uri" column="uri"/>
+        <result property="crtTime" column="crt_time"/>
+        <result property="crtUser" column="crt_user"/>
+        <result property="crtName" column="crt_name"/>
+        <result property="crtHost" column="crt_host"/>
+        <result property="body" column="body"/>
+    </resultMap>
+
+</mapper>
