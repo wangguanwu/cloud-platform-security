@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.jackson.redis.database",
+      "type": "java.lang.String",
+      "description": "Description for spring.jackson.redis.database."
+  }
+] }

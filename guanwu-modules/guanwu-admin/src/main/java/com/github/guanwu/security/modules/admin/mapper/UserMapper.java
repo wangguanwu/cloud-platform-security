@@ -1,6 +1,7 @@
 package com.github.guanwu.security.modules.admin.mapper;
 
 import com.github.guanwu.security.modules.admin.entity.User;
+import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
@@ -10,6 +11,7 @@ import tk.mybatis.mapper.common.Mapper;
  * @email 2014314038@qq.com
  * @version 2021-07-31 17:58:53
  */
+
 public interface UserMapper extends Mapper<User> {
 	
 }

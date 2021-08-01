@@ -1,6 +1,7 @@
 package com.github.guanwu.security.modules.auth.service;
 
 import com.github.guanwu.security.common.service.BaseService;
+import com.github.guanwu.security.common.service.BaseServiceBusiness;
 import com.github.guanwu.security.modules.auth.mapper.ClientMapper;
 import com.github.guanwu.security.modules.auth.mapper.ClientServiceMapper;
 import org.springframework.stereotype.Service;

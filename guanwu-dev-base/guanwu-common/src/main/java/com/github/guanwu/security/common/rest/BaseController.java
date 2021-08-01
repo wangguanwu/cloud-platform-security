@@ -7,8 +7,8 @@ import com.github.guanwu.security.common.msg.TableResultResponse;
 import com.github.guanwu.security.common.service.BaseService;
 import com.github.guanwu.security.common.util.Query;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tk.mybatis.mapper.common.Mapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -21,18 +21,13 @@ import java.util.Map;
  **/
 
 @Slf4j
-@RestController
-public class BaseController<Service extends BaseService<M ,Entity>, Entity, M extends Mapper<Entity>> {
+public class BaseController<Service extends BaseService, Entity> {
 
-    protected final HttpServletRequest request;
+    @Autowired
+    protected  HttpServletRequest request;
 
-    protected final Service baseService;
-
-
-    public BaseController(HttpServletRequest httpServletRequest, Service baseService) {
-        this.request = request;
-        this.baseService = baseService;
-    }
+    @Autowired
+    protected  Service baseService;
 
     @PostMapping(value = "")
     public BaseResponse add(@RequestBody Entity entity) {
@@ -43,7 +38,7 @@ public class BaseController<Service extends BaseService<M ,Entity>, Entity, M ex
     @GetMapping(value="/{id}")
     public BaseResponse get(@PathVariable(name = "id") Integer id) {
         GenericResponse<Entity> response = new GenericResponse<>();
-        Entity entity = baseService.selectById(id);
+        Entity entity = (Entity) baseService.selectById(id);
         response.data(entity);
         return response;
     }

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: guanwu-admin
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_SERVER_HOST:localhost}:8848
+        file-extension: yaml
+      discovery:
+        server-addr: ${NACOS_SERVER_HOST:localhost}:8848
+      sleuth:
+        enabled: false
+        sample:
+          zipkin:
+            enabled: false
+  profiles:
+    active: dev

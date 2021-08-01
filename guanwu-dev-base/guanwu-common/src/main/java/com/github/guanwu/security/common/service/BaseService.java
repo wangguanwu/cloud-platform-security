@@ -13,10 +13,15 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 业务层
+ *
+ * @author guanwu
+ * @created on 2021-08-02 00:14:23
+ **/
 public abstract class BaseService<M extends Mapper<T>, T> {
-
     @Autowired
-    protected  M mapper;
+    protected M mapper;
 
     public void setMapper(M mapper) {
         this.mapper = mapper;
@@ -102,4 +107,5 @@ public abstract class BaseService<M extends Mapper<T>, T> {
         List<T> list = mapper.selectByExample(example);
         return new TableResultResponse<T>(result.getTotal(), list);
     }
+
 }

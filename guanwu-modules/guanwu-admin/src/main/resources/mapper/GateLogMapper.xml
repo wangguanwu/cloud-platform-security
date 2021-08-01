@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.github.guanwu.security.modules.mapper.mapper.GateLogMapper">
+<mapper namespace="com.github.guanwu.security.modules.admin.mapper.GateLogMapper">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.github.guanwu.security.modules.admin.entity.GateLog" id="gateLogMap">
-        <result property="id" column="id"/>
-        <result property="menu" column="menu"/>
-        <result property="opt" column="opt"/>
-        <result property="uri" column="uri"/>
-        <result property="crtTime" column="crt_time"/>
-        <result property="crtUser" column="crt_user"/>
-        <result property="crtName" column="crt_name"/>
-        <result property="crtHost" column="crt_host"/>
-        <result property="body" column="body"/>
+    <resultMap type="com.github.guanwu.security.modules.admin.entity.GateLog" id="BaseResultMap">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="menu" property="menu" jdbcType="VARCHAR" />
+        <result column="option" property="option" jdbcType="VARCHAR" />
+        <result column="uri" property="uri" jdbcType="VARCHAR" />
+        <result column="crt_time" property="crtTime" jdbcType="DATE" />
+        <result column="crt_user" property="crtUser" jdbcType="VARCHAR" />
+        <result column="crt_name" property="crtName" jdbcType="VARCHAR" />
+        <result column="crt_host" property="crtHost" jdbcType="VARCHAR" />
     </resultMap>
 
 </mapper>
