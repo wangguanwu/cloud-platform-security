@@ -8,15 +8,14 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import tk.mybatis.mapper.provider.base.BaseInsertProvider;
 
-@EnableDiscoveryClient
 @EnableCircuitBreaker
 @SpringBootApplication
 @EnableTransactionManagement
 @MapperScan("com.github.guanwu.security.modules.*.mapper")
 @EnableSwagger2Doc
 @EnableAsync
+@EnableDiscoveryClient
 public class AdminBootstrap {
 
 
