@@ -2,6 +2,7 @@ package com.github.guanwu.security.modules.admin.mapper;
 
 import com.github.guanwu.security.modules.admin.entity.Element;
 import com.github.guanwu.security.modules.auth.entity.Client;
+import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -15,8 +16,11 @@ import java.util.List;
  */
 
 public interface ElementMapper extends Mapper<Element> {
-    List<String> selectAllowedClient(String serviceId);
 
-    List<Client> selectAuthorityServiceInfo(int clientId);
+    List<Element> selectAuthorityElementByUserId(@Param("userId") String userId);
+    List<Element> selectAuthorityMenuElementByUserId(@Param("userId") String userId,
+                                                 @Param("menuId") String menuId);
+    List<Element> selectAuthorityElementByClientId(@Param("clientId") String clientId);
+    List<Element> selectAllElementPermissions();
 	
 }

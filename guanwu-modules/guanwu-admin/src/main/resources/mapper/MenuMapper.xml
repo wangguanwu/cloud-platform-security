@@ -32,4 +32,38 @@
         <result column="path" jdbcType="VARCHAR" property="path"/>
     </resultMap>
 
+    <select id="selectMenuByAuthorityId" resultMap="BaseResultMap">
+        SELECT t.* FROM base_resource_authority ra INNER JOIN
+            base_menu t
+        ON ra.resource_id = t.id
+        AND ra.authority_id = #{authorityId}
+        AND ra.authorityType = #{authorityType}
+        AND ra.resource_type = 'menu'
+    </select>
+
+    <select id="selectAuthorityMenuByUserId" resultMap="BaseResultMap">
+        SELECT DISTINCT t.* FROM base_resource_authority ra
+            INNER JOIN base_menu t ON ra.resource_id = t.id
+        AND ra.authority_id IN (
+            SELECT group_id FROM base_group_member WHERE user_id = #{userId}
+            UNION SELECT group_id FROM base_group_leader WHERE user_id = #{userId}
+         )
+        AND ra.authority_type = 'group'
+        AND ra.resource_type = 'menu'
+        ORDER BY t.id;
+    </select>
+
+    <select id="selectAuthoritySystemByUserId" resultMap="BaseResultMap">
+        SELECT DISTINCT t.* FROM base_resource_authority ra
+        INNER JOIN base_menu t
+        ON ra.resource_id = t.id
+        AND ra.authority_id IN (
+            SELECT group_id FROM base_group_member WHERE user_id = #{userId}
+            UNION SELECT group_id FROM base_group_leader WHERE user_id = #{userId}
+                )
+        AND ra.authority_type = 'group'
+        AND ra.resource_type = 'menu'
+        WHERE t.parent_id = -1
+    </select>
+
 </mapper>

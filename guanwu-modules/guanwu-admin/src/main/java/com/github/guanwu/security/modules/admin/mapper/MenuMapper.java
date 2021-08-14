@@ -1,8 +1,11 @@
 package com.github.guanwu.security.modules.admin.mapper;
 
 import com.github.guanwu.security.modules.admin.entity.Menu;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
+
+import java.util.List;
 
 /**
  * 
@@ -13,5 +16,12 @@ import tk.mybatis.mapper.common.Mapper;
  */
 
 public interface MenuMapper extends Mapper<Menu> {
+
+    public List<Menu> selectMenuByAuthorityId(@Param("authorityId") String authorityId,
+                                              @Param("authorityType") String authorityType);
+
+    List<Menu> selectAuthorityMenuByUserId(@Param("userId") int userId);
+
+    List<Menu> selectAuthoritySystemByUserId(@Param("userId") int userId);
 	
 }

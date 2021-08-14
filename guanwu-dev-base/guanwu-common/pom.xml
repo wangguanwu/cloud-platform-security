@@ -28,6 +28,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.github.guanwu</groupId>
+            <artifactId>guanwu-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
